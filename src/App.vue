@@ -1,14 +1,14 @@
-<template>
+  <template>
   <div id="app">
-    helloworld
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
-  components: {},
+  name: "App"
 };
+
 </script>
 
 <style>

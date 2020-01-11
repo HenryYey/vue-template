@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$api = api;
 
 new Vue({
-  el: ":#app",
+  el: "#app",
   router,
   // store,
   render: h => h(App)

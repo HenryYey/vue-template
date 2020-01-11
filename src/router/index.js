@@ -1,23 +1,26 @@
 import Vue from "vue";
 import Router from "vue-router";
+import Login from "@/page/login/index";
+import NotFound from "@/page/404.vue";
+import Demo1 from "@/page/demo/index";
+import Demo2 from "@/page/demo2/index";
+// import Layout from "@/component/layout/index.vue";
 
 Vue.use(Router);
 
 /* Layout 页面容器*/
-// import Layout from "@/component/layout/index.vue";
 
 
 export const constantRoutes = [
   {
     path: "/login",
-    component: resolve => require(["@/views/login/index", resolve]),
+    component: Login,
     meta: { noAuth: true },
     hidden: true
   },
-
   {
     path: "/404",
-    component: resolve => require(["@/views/404", resolve]),
+    component: NotFound,
     meta: { noAuth: true },
     hidden: true
   },
@@ -31,13 +34,13 @@ export const constantRoutes = [
       {
         path: "demo",
         name: "Demo",
-        component: resolve => require(["@/views/demo/index", resolve]),
+        component: Demo1,
         meta: { title: "demo", icon: "demo" }
       },
       {
         path: "demo2",
-        name: "demo2",
-        component: resolve => require(["@/views/demo2/index", resolve]),
+        name: "Demo2",
+        component: Demo2,
         meta: { title: "demo2", icon: "demo2" }
       }
     ]
@@ -59,7 +62,6 @@ export function resetRouter() {
   const newRouter = createRouter();
   router.matcher = newRouter.matcher; // reset router
 }
-
 
 router.beforeEach((to, form, next) => {
   // 判断该路由是否需要先登录
